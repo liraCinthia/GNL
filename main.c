@@ -6,7 +6,7 @@
 /*   By: clira-ne <clira-ne@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 14:39:16 by clira-ne          #+#    #+#             */
-/*   Updated: 2023/11/27 15:16:03 by clira-ne         ###   ########.fr       */
+/*   Updated: 2023/11/30 16:29:15 by clira-ne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,20 @@
 int	main(void)
 {
 	int		fd;
-	int		number_carac;
-	char	buffer[1024];
+	char	*line;
 
 	fd = open("gnl_texto.txt", O_RDONLY);
-	number_carac = read(fd, buffer, 102);
-	get_next_line(fd);
+	if (fd < 0)
+	{
+		printf("Erro ao abrir o arquivo");
+		return (1);
+	}
+	line = get_next_line(fd);
+	printf("%s\n", line);
+	free(line);
+	// line = get_next_line(fd);
+	// printf("%s\n", line);
+	// free(line);
 	close(fd);
-
-	printf("%d\n", fd);
-	printf ("%d\n", number_carac);
-	printf ("%s\n", buffer);
+	return (0);
 }
