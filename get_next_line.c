@@ -6,7 +6,7 @@
 /*   By: clira-ne <clira-ne@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 17:11:27 by clira-ne          #+#    #+#             */
-/*   Updated: 2023/11/30 16:37:16 by clira-ne         ###   ########.fr       */
+/*   Updated: 2023/11/30 17:49:08 by clira-ne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ char	*ft_next_line(char *str)
 	while (str[i])
 		new_s[j++] = str[i++];
 	new_s[j] = '\0';
-	// free(new_s);
 	return (new_s);
 }
 
@@ -87,31 +86,13 @@ char	*ft_read_line(int fd, char *str)
 {
 	char	*buf;
 	int		read_bytes;
-	// char	*new_s;
 
 	buf = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buf)
 		return (NULL);
-	// read_bytes = read(fd, buf, BUFFER_SIZE);
-	// if (read_bytes == -1)
-	// {
-	// 	free(buf);
-	// 	return (NULL);
-	// }
-	// buf[read_bytes] = '\0';
-	// new_s = ft_strjoin(str, buf);
-	// free(str);
-	// str = new_s;
 	ft_read(fd, &str, &read_bytes, &buf);
 	while (!ft_strchr(buf, '\n') && read_bytes != 0)
-	{
 		ft_read(fd, &str, &read_bytes, &buf);
-		// read_bytes = read(fd, buf, BUFFER_SIZE);
-		// buf[read_bytes] = '\0';
-		// new_s = ft_strjoin(str, buf);
-		// free(str);
-		// str = new_s;
-	}
 	free(buf);
 	return (str);
 }
