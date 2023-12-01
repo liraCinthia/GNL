@@ -6,7 +6,7 @@
 /*   By: clira-ne <clira-ne@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 17:11:27 by clira-ne          #+#    #+#             */
-/*   Updated: 2023/11/30 17:49:08 by clira-ne         ###   ########.fr       */
+/*   Updated: 2023/12/01 20:12:13 by clira-ne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,12 @@ char	*ft_next_line(char *str)
 	i = 0;
 	while (str[i] && str[i] != '\n')
 		i++;
-	if (!str)
+	if (str[i] == '\0')
 	{
-		free(str);
+		new_s = NULL;
 		return (NULL);
 	}
-	new_s = (char *)malloc((ft_strlen(str) - i) * sizeof(char)); //+1
+	new_s = (char *)malloc((ft_strlen(str) - i + 1) * sizeof(char));
 	if (!new_s)
 		return (NULL);
 	i++;
@@ -75,7 +75,7 @@ void	ft_read(int fd, char **str, int *read_bytes, char **buf)
 	new_s = NULL;
 	*read_bytes = read(fd, *buf, BUFFER_SIZE);
 	if (*read_bytes == -1)
-		free(*buf);
+		return ;
 	(*buf)[*read_bytes] = '\0';
 	new_s = ft_strjoin(*str, *buf);
 	free(*str);
@@ -104,24 +104,22 @@ char	*get_next_line(int fd)
 	char		*line_read;
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &buf_str, 0) < 0)
 	{
 		free(buf_str);
 		buf_str = NULL;
 		return (NULL);
 	}
 	line_read = ft_read_line(fd, buf_str);
-	if (!line_read)
+	if (*line_read == '\0')
+	{
+		free(line_read);
 		return (NULL);
+	}
 	buf_str = ft_next_line(line_read);
 	line = ft_get_line(line_read);
 	free(line_read);
 	if (*line == '\0' && *buf_str == '\0')
-	{
-		free(line);
-		free(buf_str);
-		buf_str = NULL;
 		return (NULL);
-	}
 	return (line);
 }

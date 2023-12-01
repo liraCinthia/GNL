@@ -18,5 +18,6 @@ void	ft_read(int fd, char **str, int *read_bytes, char **buf);
 size_t	ft_strlen(const char *s);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strjoin(char const *s1, char const *s2);
+// char	*ft_strdup(const char *s);
 
 #endif
