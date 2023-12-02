@@ -6,7 +6,7 @@
 /*   By: clira-ne <clira-ne@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 17:12:33 by clira-ne          #+#    #+#             */
-/*   Updated: 2023/12/01 18:15:15 by clira-ne         ###   ########.fr       */
+/*   Updated: 2023/12/02 11:44:42 by clira-ne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-//procurar '\n'
 char	*ft_strchr(const char *s, int c)
 {
 	while (*s)
@@ -38,8 +37,6 @@ char	*ft_strchr(const char *s, int c)
 	return (0);
 }
 
-
-//concatenar
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*str;

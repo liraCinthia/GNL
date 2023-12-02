@@ -6,7 +6,7 @@
 /*   By: clira-ne <clira-ne@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 17:11:27 by clira-ne          #+#    #+#             */
-/*   Updated: 2023/12/01 20:12:13 by clira-ne         ###   ########.fr       */
+/*   Updated: 2023/12/02 11:46:44 by clira-ne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char	*ft_get_line(char *str)
 }
 
 //considerar a linha após '\n' e armazenar espaço suficiente para após '\n'
-char	*ft_next_line(char *str)
+char	*ft_rest_line(char *str)
 {
 	int		i;
 	int		j;
@@ -51,7 +51,7 @@ char	*ft_next_line(char *str)
 	i = 0;
 	while (str[i] && str[i] != '\n')
 		i++;
-	if (str[i] == '\0')
+	if (str[i] == '\0' || str[i + 1] == '\0')
 	{
 		new_s = NULL;
 		return (NULL);
@@ -97,11 +97,10 @@ char	*ft_read_line(int fd, char *str)
 	return (str);
 }
 
-
 char	*get_next_line(int fd)
 {
 	static char	*buf_str;
-	char		*line_read;
+	char		*read_line;
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &buf_str, 0) < 0)
@@ -110,16 +109,16 @@ char	*get_next_line(int fd)
 		buf_str = NULL;
 		return (NULL);
 	}
-	line_read = ft_read_line(fd, buf_str);
-	if (*line_read == '\0')
+	read_line = ft_read_line(fd, buf_str);
+	if (*read_line == '\0')
 	{
-		free(line_read);
+		free(read_line);
 		return (NULL);
 	}
-	buf_str = ft_next_line(line_read);
-	line = ft_get_line(line_read);
-	free(line_read);
+	buf_str = ft_rest_line(read_line);
+	line = ft_get_line(read_line);
 	if (*line == '\0' && *buf_str == '\0')
 		return (NULL);
+	free(read_line);
 	return (line);
 }
