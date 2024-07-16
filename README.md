@@ -7,11 +7,15 @@ This project consists of programming a function that returns a line read from a 
 
 To compile the program with the get_next_line.c file:
 ```
-gcc -Wall -Wextra -Werror -D BUFFER_SIZE=your_chosen_buffer_size your_source_files.c -o your_output_binary
+cc -Wall -Wextra -Werror -D BUFFER_SIZE=your_chosen_buffer_size <files>.c
+Example:
+cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 get_next_line.c get_next_line_utils.c main.c
 ```
 Run the compiled program:
 ```
-./your_output_binary
+./your_executable_file
+Example:
+./a.out
 ```
 ______
 
@@ -19,9 +23,13 @@ Este projeto consiste em programar uma função que retorna uma linha lida de um
 
 Para compilar o programa com o arquivo get_next_line.c:
 ```
-gcc -Wall -Wextra -Werror -D BUFFER_SIZE=your_chosen_buffer_size your_source_files.c -o your_output_binary
+gcc -Wall -Wextra -Werror -D BUFFER_SIZE=<tamanho do buffer> <files>.c
+Exemplo:
+cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 get_next_line.c get_next_line_utils.c main.c
 ```
 Execute o programa compilado:
 ```
-./your_output_binary
+./seu arquivo executável
+Exemplo:
+./a.out
 ```
