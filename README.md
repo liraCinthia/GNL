@@ -23,7 +23,7 @@ Este projeto consiste em programar uma função que retorna uma linha lida de um
 
 Para compilar o programa com o arquivo get_next_line.c:
 ```
-gcc -Wall -Wextra -Werror -D BUFFER_SIZE=<tamanho do buffer> <files>.c
+cc -Wall -Wextra -Werror -D BUFFER_SIZE=<tamanho do buffer> <files>.c
 Exemplo:
 cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 get_next_line.c get_next_line_utils.c main.c
 ```
