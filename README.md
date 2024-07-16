@@ -10,7 +10,7 @@ Files marked with "_bonus" denote an updated version in which it is possible to 
 
 To compile the program with:
 ```
-git@github.com:liraCinthia/GNL_42.git
+git clone git@github.com:liraCinthia/GNL_42.git
 ```
 ```
 cc -Wall -Wextra -Werror -D BUFFER_SIZE=your_chosen_buffer_size <files>.c
