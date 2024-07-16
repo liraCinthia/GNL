@@ -10,6 +10,9 @@ Files marked with "_bonus" denote an updated version in which it is possible to 
 
 To compile the program with:
 ```
+git@github.com:liraCinthia/GNL_42.git
+```
+```
 cc -Wall -Wextra -Werror -D BUFFER_SIZE=your_chosen_buffer_size <files>.c
 Example:
 cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 get_next_line.c get_next_line_utils.c main.c
