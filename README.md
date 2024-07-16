@@ -22,7 +22,9 @@ cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 get_next_line_bonus.c get_next_line_u
 Run the compiled program:
 ```
 ./your_executable_file
+```
 Example:
+```
 ./a.out
 ```
 ______
@@ -43,6 +45,8 @@ cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 get_next_line_bonus.c get_next_line_u
 Execute o programa compilado:
 ```
 ./seu arquivo executável
+```
 Exemplo:
+```
 ./a.out
 ```
